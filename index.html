@@ -25,6 +25,10 @@
       color: #777;
       line-height: 1.8;
     }
+    .w-100{
+      height: 64px;
+      object-fit: cover;
+    }
 
     /* Create a Parallax Effect */
     .bgimg-1,
@@ -44,13 +48,13 @@
 
     /* Second image (Portfolio) */
     .bgimg-2 {
-      background-image: url("img/frame0000.png");
+      background-image: url("img/testrender.png");
       min-height: 400px;
     }
 
     /* Third image (Contact) */
     .bgimg-3 {
-      background-image: url("img/flowerplate2.png");
+      background-image: url("img/unreal.png");
       min-height: 400px;
     }
 
@@ -70,6 +74,43 @@
         min-height: 400px;
       }
     }
+    div.gallery {
+  
+  margin: 5px;
+  border: 15px solid #8036a0;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #341e22;
+}
+
+div.gallery img {
+  
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+  color: #d9e4e4;
+  font-weight: bold;
+}
+
+ .column{
+  display:flex;
+  flex:100%;
+  overflow:hidden;
+  width:auto;
+  height:50%;
+}
+.column img{
+  width:100%;
+  
+  height:100%;
+}
   </style>
   <body>
     <!-- Navbar (sit on top) -->
@@ -165,7 +206,46 @@
     <!-- Second Parallax Image with Portfolio Text -->
     <div class="bgimg-2 w3-display-container w3-opacity-min">
       <div class="w3-display-middle">
-        <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+        <span class="w3-xxlarge w3-text-white w3-wide"></span>
+        <div class="container-fluid">
+       
+          <div class ="column">
+        <div class="gallery">
+          <a target="_blank" href="img_5terre.jpg">
+            <img src="img/spiketest3.png" alt="Cinque Terre" width="600" height="400">
+          </a>
+          <div class="desc">Renders</div>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="img_forest.jpg">
+            <img src="img/soccerd.png" alt="Forest" width="600" height="400">
+          </a>
+          <div class="desc">Data Visualization</div>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="img_lights.jpg">
+            <img src="img/wasedd.png" alt="Northern Lights" width="600" height="400">
+          </a>
+          <div class="desc">Animation</div>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="img_mountains.jpg">
+            <img src="img/crystaloid.png" alt="Mountains" width="600" height="400">
+          </a>
+          <div class="desc">Computer Science</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+          </div>
+        
+        
+        
+
       </div>
     </div>
 
@@ -197,27 +277,8 @@
         </div>
       </div>
 
-      <!-- Container (Contact Section) -->
-      <div class="w3-content w3-container w3-padding-64" id="contact">
-        <h3 class="w3-center">Contact Me</h3>
-        <p class="w3-center"><em>I'd love to hear from you!</em></p>
-
-        <div class="w3-col m8 w3-panel">
-          <div class="w3-large w3-margin-bottom">
-            <i
-              class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"
-            ></i>
-            NYC, US<br />
-            <i
-              class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"
-            ></i>
-            Discord: dreamsicle#1512<br />
-            <i
-              class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"
-            ></i>
-            Email: irreverentscreaming@gmail.com<br />
-          </div>
-          <p>Swing for collaboration, or leave me a note:</p>
+      
+          <p>Leave me a note:</p>
           <form action="/action_page.php" target="_blank">
             <div class="w3-row-padding" style="margin: 0 -16px 8px -16px">
               <div class="w3-half">
