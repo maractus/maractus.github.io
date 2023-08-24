@@ -11,8 +11,8 @@
   />
   <style>
     .row,.col{
-      display:inline-block;
-      vertical-align: middle;
+     
+     
       float: none;
       text-align: center;
     }
@@ -103,7 +103,9 @@ div.gallery img {
   width: 100%;
   height: auto;
 }
-
+.container-fluid{
+  text-align: center;
+}
 div.desc {
   padding: 15px;
   text-align: center;
@@ -112,11 +114,13 @@ div.desc {
 }
 
  .column{
-  display:flex;
+  display:center;
   flex:100%;
   overflow:hidden;
   width:auto;
   height:50%;
+  text-align: center;
+  
 }
 .column img{
   width:100%;
@@ -137,7 +141,7 @@ div.desc {
           <i class="fa fa-bars"></i>
         </a>
         <a href="index.html" class="w3-bar-item w3-button"><b>HOME</b></a>
-        <a href="about" class="w3-bar-item w3-button"><b>ABOUT</b></a>
+      
                          
           <a href="gamedesign.html" class="w3-bar-item w3-button"><b>GAME DESIGN</b></a>
           <a href="animation.html" class="w3-bar-item w3-button"><b>ANIMATION</b></a>
@@ -200,7 +204,7 @@ div.desc {
     </div>
 
     <!-- Container (Portfolio Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="portfolio">
+   
       <!-- Modal for full size images on click-->
       <div
         id="modal01"
@@ -222,33 +226,7 @@ div.desc {
 </div>
 
       <div class="row">
-        <div class="container-fluid">
-       
-          <div class ="column">
-            
-        <div class="gallery">
-          <a target="_blank" href="gamedesign.html">
-            <img src="img/spiketest3.png" alt="Cinque Terre" width="600" height="400">
-          </a>
-          <div class="desc">Game Design</div>
-        </div>
-            
-        <div class="gallery">
-          <a target="_blank" href="animation.html">
-            <img src="img/wasedd.png" alt="Northern Lights" width="600" height="400">
-          </a>
-          <div class="desc">Animation</div>
-        </div>
         
-        <div class="gallery">
-          <a target="_blank" href="computerscience.html">
-            <img src="img/crystaloid.png" alt="Mountains" width="600" height="400">
-          </a>
-          <div class="desc">Computer Science</div>
-        </div>
-      </div>
-
-    </div>
     
         <div class="col">
           <img class= "img-responsive"src="img/0001-0480.gif"width="900" height="540">
