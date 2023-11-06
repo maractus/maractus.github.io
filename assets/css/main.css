@@ -19,6 +19,10 @@ html {
 body {
   margin: 0;
 }
+.column{
+  flex: 33.33%;
+  padding: 5px;
+}
 article,
 aside,
 details,
@@ -242,6 +246,10 @@ body {
     font-size: 14px;
   }
 }
+.img-responsive {
+  flex: 33.33%;
+  padding: 15px;
+}
 ::-moz-selection {
   background: #fff498;
 }
@@ -255,7 +263,9 @@ img::-moz-selection {
   background: transparent;
 }
 img::selection {
-  background: transparent;
+    flex: 33.33%;
+    padding: 5px;
+
 }
 img::-moz-selection {
   background: transparent;
