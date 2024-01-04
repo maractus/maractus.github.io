@@ -1,6 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      .nav {
+        visibility: hidden;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #e3e3e3;
+        border: 1px solid #111;
+        border: 1px solid rgba(17, 17, 17, 0.15);
+        opacity: 0;
+        z-index: 10;
+        -webkit-transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+        transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+      }
+      .nav-toggle {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 80px;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+      #hero header .nav-toggle p {
+        margin-bottom: 0;
+        font-size: 14px;
+        font-family: "Raleway", Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+      #hero header .nav-toggle span,
+      #hero header .nav-toggle span:before,
+      #hero header .nav-toggle span:after {
+        content: "";
+        position: relative;
+        display: block;
+        width: 23px;
+        height: 2px;
+        background-color: #111;
+      }
+      #hero header .nav-toggle span:before {
+        bottom: 7px;
+      }
+      #hero header .nav-toggle span:after {
+        top: 5px;
+      }
+    </style>
     <title>Computer Science</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,7 +82,7 @@
       content="apollo, jade, template, html, sass, jquery"
     />
     <meta name="author" content="Bucky Maler" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="secretsauce/main.css" />
   </head>
   <body>
     <section id="hero">
