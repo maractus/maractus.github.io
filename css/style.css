@@ -1635,9 +1635,9 @@ figure.dotted-bg {
     position: relative;
     display: inline-block; }
     .site-footer a:hover {
-      color: #0389ff; }
+      color: #0389ff00; }
       .site-footer a:hover:before {
-        background: #0389ff; }
+        background: #0389ff00; }
   .site-footer .btn:before {
     display: none; }
   .site-footer .widget {
@@ -1657,7 +1657,7 @@ figure.dotted-bg {
       width: 30px;
       height: 30px;
       position: relative;
-      background: #0389ff;
+      background: #0389ff00;
       border-radius: 50%;
       color: #ffffff; }
       .site-footer .social li a:before {
