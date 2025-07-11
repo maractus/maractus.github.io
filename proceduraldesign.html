@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
+     <style>
      body {
   background-color: black; /* Make the whole page background black */
 }
@@ -10,11 +10,13 @@
 .black-frame {
   background-color: black; /* Make the content inside white */
   padding: 40px;
+  color:white;
   border-radius: 12px;
   max-width: 100%;
   margin: 0 auto 60px auto;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* optional glow */
 } 
+    </style>
     </style>
     <meta charset="utf-8" />
     <meta
@@ -56,7 +58,7 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-    <nav class="site-nav dark mb-4 site-navbar-target">
+      <nav class="site-nav dark mb-5 site-navbar-target">
       <div class="container">
         <div class="site-navigation">
           <ul
@@ -79,19 +81,35 @@
               >
             </li>
           </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-          <a
-            href="#"
-            class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-inline-block"
-            data-toggle="collapse"
-            data-target="#main-navbar"
-          >
-            <span></span>
-          </a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="clientwork.html">Client Work</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="computerscience.html">Computer Science</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="animation.html">Animation</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="proceduraldesign.html">Procedural Design</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
         </div>
       </div>
     </nav>
-
     
   
       <div class="container">
