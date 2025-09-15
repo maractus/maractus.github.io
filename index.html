@@ -31,6 +31,7 @@
   margin: 0 auto 60px auto;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* optional glow */
 } 
+
       .img-responsive,
       .gallery {
         padding: 15px;      }
@@ -94,6 +95,79 @@
         width: 100%;
         height: 100%;
       }
+      h1 a {
+  color: black;            /* normal state */
+  text-decoration: none;   /* remove default underline */
+  font-weight: bold;       /* match <strong> boldness */
+  transition: color 0.3s, text-decoration 0.3s; /* smooth hover */
+}
+
+h1 a:hover {
+  color: #555;             /* subtle dark gray on hover */
+  text-decoration: underline; /* underline on hover */
+}
+.card {
+  border: none; /* cleaner look */
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.section-row {
+  position: relative;
+  min-height: 250px;
+  background-color: black; /* fallback if image fails */
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.section-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.section-row .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* darken background */
+  z-index: 1;
+}
+
+.section-row .container {
+  position: relative;
+  z-index: 2; /* ensure text/images appear above overlay */
+}
+
+.section-row h1 {
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+  font-weight: bold; z-index: 2;
+}
+.section-row a:hover h1 {
+        text-decoration: underline;
+        color: #ffcc00;
+      }
+ .section-row:hover {
+        transform: translateY(-3px);
+        background-color: #111;
+      }
+      .section-row img {
+    width: 100%; /* Ensure images scale to fit */
+    height: 100%; /* Maintain aspect ratio */
+    object-fit: cover; /* Scale images properly */
+  }
     </style>
     
     <title>Chudi Onwuasoanya - Multimedia Artist</title>
@@ -112,45 +186,41 @@
     <div class="untree_co-section pb-0" id="home-section">
       <div class="container">
         <div class="row justify-content-center text-center">
-          <div class="col-md-7">
-            <h1 class="heading gsap-reveal-hero mb-3">
+          <div class="col-md-7"> <h1>
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          </h1>
+            <h1 class="heading  mb-3">
               <a href="https://www.patreon.com/c/Dreamsicle122">
                 <img src="img/weupabstractin3.png" alt="Abstract art" class="img-fluid rounded-circle mb-3" />
               </a>
             </h1>
-            <h1><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></h1>
-            <h2 class="subheading gsap-reveal-hero mb-4">
+           
+            
+            <h2 class="subheading mb-4">
               I am a multimedia artist showcasing Touchdesigner, Blender and Houdini projects with an emphasis on procedural modeling and graphics programming. I can fulfill all aspects of digital production and design.
             </h2>
           </div>
         </div>
-        <div class="container">
+       
         <div
           class="portfolio-single-wrap unslate_co--section"
           id="portfolio-single-section"
         >
-          <div class="portfolio-single-inner">
+          
              <div class="black-frame">
            
-            
-              <div class="container">
-                <div
-                  class="portfolio-single-wrap unslate_co--section"
-                  id="portfolio-single-section"
-                >
-                  <div class="portfolio-single-inner">
-                    
+                          
                   
-                        <div class="container">
+                        
                           <div
                             class="portfolio-single-wrap unslate_co--section"
                             id="portfolio-single-section"                        >
                            
                              
                             </div>
-                          </div>
-                        </div>
-                      </div><div
+                         
+                     
+                      <div
                       class="portfolio-single-wrap unslate_co--section"
                       id="portfolio-single-section"
                     >
@@ -160,66 +230,38 @@
                             <div class="container">
                              
                                
-                      <div
-                        class="untree_co-section untree_co-section-4 pb-0"
-                        id="portfolio-section"
-                      >
-                        <div class="container">
-                          <div
-                            class="portfolio-single-wrap unslate_co--section"
-                            id="portfolio-single-section"
-                          >
-                           
-                            
-                            </div>
-                          </div>
-                        </div>
+                   
                       </div>
-                        <div class="container blurb">
-  <div class="row align-items-center mb-4">
-    <div class="col-md-4">
-      <h1><strong>Client Work</strong></h1>
-    </div>
-    <div class="col-md-8 text-end">
-      <a href="clientwork.html">
-        <img src="img/jimmyface.png" alt="Abstract art" class="img-fluid rounded-circle" style="width: 150px; display: block; margin-left: auto;" />
-      </a>
-    </div>
-  </div>
-
-  <div class="row align-items-center mb-4">
-    <div class="col-md-4">
-      <h1><strong>Computer Science</strong></h1>
-    </div>
-    <div class="col-md-8 text-end">
-      <a href="computerscience.html">
-        <img src="img/gameu.png" alt="Abstract art" class="img-fluid rounded-circle" style="width: 150px; display: block; margin-left: auto;" />
-      </a>
-    </div>
-  </div>
-
-  <div class="row align-items-center mb-4">
-    <div class="col-md-4">
-      <h1><strong>Procedural Design</strong></h1>
-    </div>
-    <div class="col-md-8 text-end">
-      <a href="proceduraldesign.html">
-        <img src="img/smurktalkingdiamond.gif" alt="Abstract art" class="img-fluid rounded-circle" style="width: 150px; display: block; margin-left: auto;"  />
-      </a>
-    </div>
-  </div>
-
-  <div class="row align-items-center mb-4">
-    <div class="col-md-4">
-      <h1><strong>Animation</strong></h1>
-    </div>
-    <div class="col-md-8 text-end">
-      <a href="animation.html">
-        <img src="img/weirdcorework2_1_1.gif" alt="Abstract art" class="img-fluid rounded-circle" style="width: 150px; display: block; margin-left: auto;" />
-      </a>
-    </div>
-  </div>
-</div>
+                    
+                  
+                      <!-- Client Work -->
+                      <section class="section-row" style="background-image: url('img/tacky.png');">
+                        <a href="clientwork.html">
+                          <h1>Client Work</h1>
+                        </a>
+                      </section>
+                  
+                      <!-- Computer Science -->
+                  
+                  
+                      <!-- Procedural Design -->
+                      <section class="section-row" style="background-image: url('img/Kickinthatwolf_2.gif');">
+                        <a href="proceduraldesign.html">
+                          <h1>Procedural Design</h1>
+                        </a>
+                      </section>
+                  
+                      <!-- Animation -->
+                      <section class="section-row" style="background-image: url('img/weirdcorework2_1_1.gif');">
+                        <a href="animation.html">
+                          <h1>Animation</h1>
+                        </a>
+                      </section>
+                      <section class="section-row" style="background-image: url('img/unreal.png');">
+                        <a href="computerscience.html">
+                          <h1>Computer Science</h1>
+                        </a>
+                      </section>
            
                           
         </div>
