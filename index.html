@@ -1,321 +1,367 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="Chudi's Design Portfolio" content="Portfolio - Chudi Onwuasoanya"/>
-    <meta  name="keywords" content="chudi, onwuasoanya, coding, visuals, computer science, touchdesigner"
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Chudi Onwuasoanya / Dreamscle — multimedia artist, procedural designer, creative technologist, and visual systems designer."
     />
+    <meta
+      name="keywords"
+      content="Dreamscle, Chudi Onwuasoanya, TouchDesigner, Blender, Houdini, procedural design, creative coding, multimedia artist, visual artist"
+    />
+    <title>Dreamscle — Multimedia Artist & Creative Technologist</title>
     <link rel="shortcut icon" href="img/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWBNDJTVV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZJWBNDJTVV');
-</script>
-    
-    <style>
-      .black-frame {
-  background-color: black; /* Make the content inside white */
-  padding: 40px;
-  color:white;
-  border-radius: 12px;
-  max-width: 100%;
-  margin: 0 auto 60px auto;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* optional glow */
-} 
-
-      .img-responsive,
-      .gallery {
-        padding: 15px;      }
-      body,
-      html {
-        height: 100%;
-        font-family: "Lato", sans-serif;
-        line-height: 1.8;      }
-      p {
-        font-size: 20px;
-      }
-      .w-100 {
-        height: 64px;
-        object-fit: cover;      }
-      .bgimg-1,
-      .bgimg-2,
-      .bgimg-3 {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;      }
-      .bgimg-1 {
-        background-image: url("img/card.gif");
-        min-height: 100%;      }
-      .bgimg-2 {
-        background-image: url("img/testrender.png");
-        min-height: 400px;      }
-      .bgimg-3 {
-        background-image: url("img/unreal.png");
-        min-height: 400px;      }
-      @media only screen and (max-device-width: 1600px) {
-        .bgimg-1,
-        .bgimg-2,
-        .bgimg-3 {
-          background-attachment: scroll;
-          min-height: 400px;
-        }
-      }
-      .gallery {
-        margin: 25px;
-        border: 15px solid #8036a0;
-        float: left;
-        width: 180px;      }
-      .gallery:hover {
-        border: 1px solid #341e22;
-      }
-      .gallery img {
-        width: 100%;
-        height: auto;
-      }
-      .container-fluid {
-        text-align: center;
-      }
-      .desc {
-        padding: 15px;
-        text-align: center;
-        color: #d9e4e4;
-        font-weight: bold;
-      }
-      .column img {
-        width: 100%;
-        height: 100%;
-      }
-      h1 a {
-  color: white;            /* normal state */
-  text-decoration: none;   /* remove default underline */
-  font-weight: bold;       /* match <strong> boldness */
-  transition: color 0.3s, text-decoration 0.3s; /* smooth hover */
-}
-h1 a:visited,
-h1 a:active,
-h1 a:focus {
-  color: white !important;    /* ensure white for visited/active/focus */
-}
-h1 a:hover {
-  color: #ffcc00;          
-  text-decoration: underline; /* underline on hover */
-}
-.card {
-  border: none; /* cleaner look */
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-.section-row {
-  position: relative;
-  min-height: 250px;
-  background-color: black; /* fallback if image fails */
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-}
-
-.section-row:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.section-row .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6); /* darken background */
-  z-index: 1;
-}
-
-.section-row .container {
-  position: relative;
-  z-index: 2; /* ensure text/images appear above overlay */
-}
-
-.section-row h1 {
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
-  font-weight: bold; z-index: 2;
-}
-.section-row a:hover h1 {
-        text-decoration: underline;
-        color: #ffcc00;
-      }
- .section-row:hover {
-        transform: translateY(-3px);
-        background-color: #111;
-      }
-      .section-row img {
-    width: 100%; /* Ensure images scale to fit */
-    height: 100%; /* Maintain aspect ratio */
-    object-fit: cover; /* Scale images properly */
-  }
-  h2.subheading.mb-4 {
-  font-size: 25px;
-  color: white;
-}
-    </style>
-    
-    <title>Chudi Onwuasoanya - Multimedia Artist</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dreamscle-fixed-dark-design.css" />
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
-   
-    
-    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home"></div>
-    <div class="untree_co-section pb-0" id="home-section">
-      <div class="container">
-         <div class="black-frame">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-7"> 
-            <h1 class="heading  mb-3">
-              <a href="https://www.patreon.com/c/Dreamsicle122">
-                <img src="img/weupabstractin3.png" alt="Abstract art" class="img-fluid rounded-circle mb-3" />
-              </a>
-            </h1>
-           
-            
-            <h2 class="subheading mb-4">
-              I am a multimedia artist showcasing Touchdesigner, Blender and Houdini projects with an emphasis on procedural modeling and graphics programming. I can fulfill all aspects of digital production and design.
-            </h2>
+  <body>
+    <div
+      id="site-loader"
+      class="site-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading Dreamscle website"
+    >
+      <div class="loader-card">
+        <img src="card.gif" alt="Dreamscle animated loading screen" />
+        <div class="loader-copy">
+          <span>Loading Dreamscle</span>
+          <div class="loader-bar" aria-hidden="true"><span></span></div>
+        </div>
+      </div>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <canvas id="webgl-bg" aria-hidden="true"></canvas>
+    <div class="noise-layer" aria-hidden="true"></div>
+
+    <header class="site-header fixed-top" id="site-header">
+      <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+        <div class="container-fluid px-3 px-lg-5">
+          <a
+            class="navbar-brand brand-mark"
+            href="#top"
+            aria-label="Dreamscle home"
+          >
+            <span class="brand-orb" aria-hidden="true"></span>
+            <span>Dreamscle</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#work">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Commissions</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="resume.pdf">Resume</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-primary nav-cta" href="#contact"
+                  >Start a project</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
-       
-        <div
-          class="portfolio-single-wrap unslate_co--section"
-          id="portfolio-single-section"       >                  
-                          <div
-                            class="portfolio-single-wrap unslate_co--section"
-                            id="portfolio-single-section"                        >
-                           
-                             
-                            </div>
-                         
-                     
-                      <div
-                      class="portfolio-single-wrap unslate_co--section"
-                      id="portfolio-single-section"
-                    >
-                      <div class="portfolio-single-inner">
-                        
-                      
-                            <div class="container">
-                             
-                               
-                   
-                      </div>
-                    
-                  
-                      <!-- Client Work -->
-                      <section class="section-row" style="background-image: url('img/tacky.png');">
-                        <a href="clientwork.html">
-                          <h1>Client Work</h1>
-                        </a>
-                      </section>
-                  
-                      <!-- Computer Science -->
-                  
-                  
-                      <!-- Procedural Design -->
-                      <section class="section-row" style="background-image: url('img/Kickinthatwolf_2.gif');">
-                        <a href="proceduraldesign.html">
-                          <h1>Procedural Design</h1>
-                        </a>
-                      </section>
-                  
-                      <!-- Animation -->
-                      <section class="section-row" style="background-image: url('img/weirdcorework2_1_1.gif');">
-                        <a href="animation.html">
-                          <h1>Animation</h1>
-                        </a>
-                      </section>
-                      <section class="section-row" style="background-image: url('img/unreal.png');">
-                        <a href="resume.pdf">
-                          <h1>Resume</h1>
-                        </a>
-                      </section>
-           
-                          <h1>
-          </h1>
-        </div>
-      </div>
-    </div>
-    
-      </div>
-    </div>
-    
-      
-    <div class="site-footer">
-      <div class="container">
-        
-        <div class="d-flex justify-content-end" style="margin-top: 20px;">
-          <div style="text-align: right;">
-            <div>
-              <a href="https://www.instagram.com/dreamscle/" target="_blank">
-                <img src="img/instagram.png" alt="Instagram" style="width: 30px; margin-right: 8px;" />
+      </nav>
+    </header>
+
+    <main id="main">
+      <section
+        class="hero min-vh-100 d-flex align-items-center"
+        id="top"
+        aria-labelledby="hero-title"
+      >
+        <div class="container position-relative">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-7 hero-copy">
+              <p class="eyebrow reveal">
+                Multimedia artist · Procedural designer · Creative technologist
+              </p>
+              <h1 class="display-1 fw-black reveal" id="hero-title">
+                Visual systems for brands,strange worlds and games.
+              </h1>
+              <p class="lead reveal">
+                I build interactive visual experiences using TouchDesigner,
+                Blender, Houdini, WebGL, procedural modeling, and graphics
+                programming. Commission me for music visuals, realtime
+                installations, 3D motion, web experiences, and experimental
+                digital projects.
+              </p>
+
+              <div class="d-flex flex-wrap gap-3 reveal">
+                <a class="btn btn-primary btn-lg magnetic" href="#work"
+                  >Explore work</a
+                >
+                <a class="btn btn-outline-light btn-lg magnetic" href="#contact"
+                  >Commission inquiry</a
+                >
+              </div>
+              <ul class="hero-stats reveal" aria-label="Core capabilities">
+                <li><strong>Blender</strong><span>3D Animation</span></li>
+                <li>
+                  <strong>TouchDesigner</strong><span>Realtime visuals</span>
+                </li>
+                <li><strong>Houdini</strong><span>Procedural systems</span></li>
+              </ul>
+            </div>
+            <div class="col-lg-5">
+              <a
+                class="hero-art-card reveal"
+                href="https://www.patreon.com/c/Dreamsicle122"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open Dreamscle Patreon in a new tab"
+              >
+                <img
+                  src="img/card.gif"
+                  alt="Abstract Dreamscle artwork"
+                  class="img-fluid"
+                />
+                <span class="scanline" aria-hidden="true"></span>
+                <span class="art-caption">Support / Follow</span>
               </a>
-              <a href="https://www.patreon.com/c/Dreamsicle122" target="_blank">
-                <img src="img/patreon.png" alt="Patreon" style="width: 30px;" />
-              </a>
-             </div>
             </div>
           </div>
-        
+        </div>
+        <button class="motion-toggle" type="button" aria-pressed="false">
+          Pause motion
+        </button>
+      </section>
+
+      <section class="section-padding" id="work" aria-labelledby="work-title">
+        <div class="container">
+          <div class="section-kicker reveal">Selected directions</div>
+          <div class="row align-items-end mb-4 g-3">
+            <div class="col-lg-8"></div>
+          </div>
+          <div class="work-grid">
+            <a
+              class="work-card reveal"
+              href="clientwork.html"
+              style="--bg: url(&quot;img/tacky.png&quot;)"
+            >
+              <span class="work-index">01</span>
+              <h3>Client Work</h3>
+              <p>
+                Campaign visuals, commissioned motion, identity-adjacent art,
+                and custom digital production.
+              </p>
+              <span class="work-link">View projects</span>
+            </a>
+            <a
+              class="work-card reveal"
+              href="proceduraldesign.html"
+              style="--bg: url(&quot;img/Kickinthatwolf_2.gif&quot;)"
+            >
+              <span class="work-index">02</span>
+              <h3>Procedural Design</h3>
+              <p>
+                Generative environments, simulation textures, parametric forms,
+                and controllable visual systems.
+              </p>
+              <span class="work-link">View systems</span>
+            </a>
+            <a
+              class="work-card reveal"
+              href="animation.html"
+              style="--bg: url(&quot;img/weirdcorework2_1_1.gif&quot;)"
+            >
+              <span class="work-index">03</span>
+              <h3>Animation</h3>
+              <p>
+                Surreal loops, music visuals, abstract motion, title work, and
+                digital atmosphere.
+              </p>
+              <span class="work-link">View animation</span>
+            </a>
+            <a
+              class="work-card reveal"
+              href="creativecoding.html"
+              style="--bg: url(&quot;img/unreal.png&quot;)"
+            >
+              <span class="work-index">04</span>
+              <h3>Creative Coding</h3>
+              <p>
+                Interactive tools, web experiences, game-adjacent prototypes,
+                shaders, and technical art.
+              </p>
+              <span class="work-link">View code</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section-padding compact"
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <div class="container">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-5">
+              <div class="sticky-panel reveal">
+                <p class="eyebrow">Commissions</p>
+                <h2 id="services-title">Clear ways to hire me.</h2>
+
+                <a class="btn btn-primary magnetic" href="#contact"
+                  >Start a commission</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="service-list" role="list">
+                <article class="service-item reveal" role="listitem">
+                  <span>Realtime</span>
+                  <h3>Live visuals & installation systems</h3>
+                  <p>
+                    Audio-reactive visuals, interactive projections, VJ loops,
+                    and gallery-ready realtime scenes.
+                  </p>
+                </article>
+                <article class="service-item reveal" role="listitem">
+                  <span>3D / Motion</span>
+                  <h3>Procedural animation packages</h3>
+                  <p>
+                    Loops, title cards, digital sculptures, generative material
+                    studies, and music-video assets.
+                  </p>
+                </article>
+                <article class="service-item reveal" role="listitem">
+                  <span>Web</span>
+                  <h3>Interactive portfolio or campaign pages</h3>
+                  <p>
+                    WebGL backgrounds, interactive landing pages, scroll
+                    experiences, and experimental artist sites.
+                  </p>
+                </article>
+                <article class="service-item reveal" role="listitem">
+                  <span>Games</span>
+                  <h3>Technical art & worldbuilding assets</h3>
+                  <p>
+                    Shader direction, ambience, UI concepts, item/world visuals,
+                    and surreal environment studies.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="archive-marquee"
+        id="archive"
+        aria-label="Visual skills marquee"
+      >
+        <div class="marquee-track">
+          <span>TouchDesigner</span><span>Blender</span><span>Houdini</span
+          ><span>WebGL</span><span>Shaders</span><span>Procedural Modeling</span
+          ><span>Realtime Graphics</span><span>Interactive Installation</span>
+        </div>
+      </section>
+
+      <section
+        class="section-padding contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="container">
+          <div class="contact-card reveal">
+            <div class="row g-4 align-items-center">
+              <div class="col-lg-8">
+                <p class="eyebrow">Available for commissions</p>
+                <h2 id="contact-title">
+                  Bring me a strange design brief, an audio track, a world, or a
+                  technical problem.
+                </h2>
+                <p>
+                  I’m excited by projects that push the boundaries of digital
+                  art and design. If you have an idea that doesn’t fit into a
+                  traditional category, let’s talk about it.
+                </p>
+              </div>
+              <div class="col-lg-4 d-flex flex-column gap-3">
+                <a
+                  class="btn btn-primary btn-lg magnetic"
+                  href="mailto:chudi1223@gmasubject=Dreamscle%20commission%20inquiry"
+                  >Email inquiry</a
+                >
+                <a
+                  class="btn btn-outline-light btn-lg magnetic"
+                  href="resume.pdf"
+                  >Download resume</a
+                >
+                <div class="social-row" aria-label="Social links">
+                  <a
+                    href="https://www.instagram.com/dreamscle/"
+                    target="_blank"
+                    rel="noopener"
+                    >Instagram</a
+                  >
+                  <a
+                    href="https://www.patreon.com/c/Dreamsicle122"
+                    target="_blank"
+                    rel="noopener"
+                    >Patreon</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer py-4">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between gap-2"
+      >
+        <p class="mb-0">
+          © <span id="year"></span> Dreamscle / Chudi Onwuasoanya
+        </p>
+        <a href="#top">Back to top</a>
       </div>
-    </div>
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/wave-animate.js"></script>
-    <script src="js/circle-progress.js"></script>
-    <script src="js/imagesloaded.pkgd.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/TweenMax.min.js"></script>
-    <script src="js/ScrollMagic.min.js"></script>
-    <script src="js/scrollmagic.animation.gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js"></script>
-    <script src="js/custom.js"></script>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // EASY PARTICLE CONTROLS
+      // particleAmount controls desktop particle count. Lower = smoother, higher = more detailed.
+      // mobileParticleAmount controls phones/tablets. Keep this lower for performance.
+      window.DREAMSCLE_PARTICLE_SETTINGS = {
+        particleAmount: 1200,
+        mobileParticleAmount: 600,
+        textScale: 0.78,
+        mobileTextScale: 0.86,
+        particleSize: 5.8,
+        mobileParticleSize: 4.6,
+      };
+    </script>
+    <script src="dreamscle-fixed-dark-design.js"></script>
   </body>
 </html>
-

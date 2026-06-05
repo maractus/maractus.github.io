@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Dreamscle client work — commissioned music visuals, realtime video art, album art, and experimental digital production."
+    />
+    <meta
+      name="keywords"
+      content="Dreamscle, Chudi Onwuasoanya, client work, music visuals, video artist, album art, TouchDesigner, Blender, Resolume"
+    />
+    <title>Creative Coding — Dreamscle</title>
+    <link rel="shortcut icon" href="img/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dreamscle-fixed-dark-design.css" />
+
+    <style>
+      .client-work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .client-card {
+        min-height: 430px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.85)),
+          var(--bg) center / cover no-repeat;
+        color: #fff;
+        text-align: left;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-end;
+        isolation: isolate;
+        cursor: pointer;
+      }
+
+      .client-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(255, 255, 255, 0.22),
+          transparent 38%
+        );
+        opacity: 0;
+        transition:
+          opacity 220ms ease,
+          transform 220ms ease;
+        z-index: -1;
+      }
+
+      .client-card:hover::before,
+      .client-card:focus-visible::before {
+        opacity: 1;
+      }
+
+      .client-card:hover,
+      .client-card:focus-visible {
+        transform: translateY(-4px);
+      }
+
+      .client-card-content {
+        width: 100%;
+      }
+
+      .client-card h3 {
+        font-size: clamp(2rem, 4vw, 4.25rem);
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        margin: 0.65rem 0 1rem;
+      }
+
+      .client-card .work-index,
+      .client-card .work-link {
+        display: block;
+      }
+
+      .client-card .work-link {
+        margin-top: 1rem;
+      }
+
+      .project-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        place-items: center;
+        padding: 1.25rem;
+      }
+
+      .project-modal.is-open {
+        display: grid;
+      }
+
+      .project-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.74);
+        backdrop-filter: blur(14px);
+      }
+
+      .project-modal-card {
+        position: relative;
+        width: min(980px, 100%);
+        max-height: min(84vh, 900px);
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 30px;
+        background: rgba(8, 8, 18, 0.92);
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+      }
+
+      .project-modal-image {
+        min-height: 330px;
+        background: var(--bg) center / cover no-repeat;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .project-modal-copy {
+        padding: clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .project-modal-copy h2 {
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        font-size: clamp(2.2rem, 5vw, 5rem);
+        margin-bottom: 1rem;
+      }
+
+      .project-modal-copy p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .project-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.56);
+        color: #fff;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      @media (max-width: 991px) {
+        .client-work-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .client-card {
+          min-height: 360px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="site-loader"
+      class="site-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading Dreamscle website"
+    >
+      <div class="loader-card">
+        <img src="card.gif" alt="Dreamscle animated loading screen" />
+        <div class="loader-copy">
+          <span>Loading Dreamscle</span>
+          <div class="loader-bar" aria-hidden="true"><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="noise-layer" aria-hidden="true"></div>
+
+    <header class="site-header fixed-top" id="site-header">
+      <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+        <div class="container-fluid px-3 px-lg-5">
+          <a
+            class="navbar-brand brand-mark"
+            href="index.html"
+            aria-label="Dreamscle home"
+          >
+            <span class="brand-orb" aria-hidden="true"></span>
+            <span>Dreamscle</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#work">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#services">Commissions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="resume.pdf">Resume</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-primary nav-cta" href="index.html#contact"
+                  >Start a project</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section
+        class="hero min-vh-100 d-flex align-items-center"
+        id="top"
+        aria-labelledby="hero-title"
+      >
+        <div class="container position-relative">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-8 hero-copy">
+              <p class="eyebrow reveal">
+                Selected projects · Commissioned production · Realtime visuals
+              </p>
+              <h1 class="display-1 fw-black reveal" id="hero-title">
+                Client Work
+              </h1>
+              <p class="lead reveal">
+                Music visuals, animated album art, realtime projection systems,
+                and dreamlike digital assets created for artists, events, and
+                performers.
+              </p>
+              <div class="d-flex flex-wrap gap-3 reveal">
+                <a class="btn btn-primary btn-lg magnetic" href="#work"
+                  >View projects</a
+                >
+                <a
+                  class="btn btn-outline-light btn-lg magnetic"
+                  href="index.html#contact"
+                  >Commission inquiry</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="motion-toggle" type="button" aria-pressed="false">
+          Pause motion
+        </button>
+      </section>
+
+      <section class="section-padding" id="work" aria-labelledby="work-title">
+        <div class="container">
+          <div class="section-kicker reveal">Client archive</div>
+          <div class="row align-items-end mb-4 g-3">
+            <div class="col-lg-8">
+              <h2 class="display-5 fw-black reveal" id="work-title">
+                Click a project card to read the full description.
+              </h2>
+            </div>
+          </div>
+
+          <div class="client-work-grid">
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/dayplant2.png&quot;)"
+              data-project="floating-shrine"
+            >
+              <span class="client-card-content">
+                <span class="work-index">01 - 2024 - Music Video</span>
+                <h3>Floating Shrine</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/concertvis.gif&quot;)"
+              data-project="jungle-gym"
+            >
+              <span class="client-card-content">
+                <span class="work-index">02 - 2023 - Video Artist</span>
+                <h3>Jungle Gym</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/wondervillenight.JPG&quot;)"
+              data-project="wonderville"
+            >
+              <span class="client-card-content">
+                <span class="work-index">03 - 2023 - Wonderville</span>
+                <h3>Wonderville NYC</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/Spiketest1_1.gif&quot;)"
+              data-project="upstate-artist"
+            >
+              <span class="client-card-content">
+                <span class="work-index">04 - 2023 - Album Art</span>
+                <h3>Promotional Visuals</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/jimmyface.png&quot;)"
+              data-project="overhead-bins"
+            >
+              <span class="client-card-content">
+                <span class="work-index">05 - 2022 - Music Video</span>
+                <h3>The Overhead Bins</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/seanproject.gif&quot;)"
+              data-project="mellophobiac"
+            >
+              <span class="client-card-content">
+                <span class="work-index">06 - 2022 - Spotify Album Art</span>
+                <h3>Mellophobiac</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal></div>
+      <article
+        class="project-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button
+          class="project-modal-close"
+          type="button"
+          aria-label="Close project"
+          data-close-modal
+        >
+          ×
+        </button>
+        <div class="project-modal-image" id="modal-image"></div>
+        <div class="project-modal-copy">
+          <p class="eyebrow" id="modal-meta"></p>
+          <h2 id="modal-title"></h2>
+          <p id="modal-text"></p>
+          <div class="row g-3 mt-4" id="modal-gallery"></div>
+        </div>
+      </article>
+    </div>
+
+    <footer class="site-footer py-4">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between gap-2"
+      >
+        <p class="mb-0">
+          © <span id="year"></span> Dreamscle / Chudi Onwuasoanya
+        </p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="dreamscle-fixed-dark-design.js"></script>
+
+    <script>
+      const projects = {
+        "floating-shrine": {
+          title: "Floating Shrine",
+          meta: "01 - 2024 - Music Video",
+          image: "img/dayplant2.png",
+          gallery: [],
+          text: "Floating Shrine is an ambient glitch artist who required dreamlike visuals to match their futurist and classically-coded aesthetic. This required me to work with volumetric data to create clouds, as well as rendered stills for EP art on Spotify.",
+        },
+        "jungle-gym": {
+          title: "Jungle Gym",
+          meta: "02 - 2023 - Video Artist",
+          image: "img/concertvis.gif",
+          gallery: ["img/ravefootage.gif"],
+          text: "Jungle Gym was a large event featuring a host of famous jungle drum-and-bass artists were touring in New York City, each with millions of listens on Spotify and Soundcloud. I performed a 6hr set of visuals, mixing realtime visuals with ones I had created in other programs like Blender and Touchdesigner.",
+        },
+        wonderville: {
+          title: "Wonderville NYC",
+          meta: "03 - 2023 - Wonderville",
+          image: "img/wondervillenight.JPG",
+          gallery: ["img/tacky.png"],
+          text: "I perform monthly at Wonderville NYC, the first all-independent arcade bar in Bushwick, featuring over 30 custom-built free-to-play games by members of the NYC games community and around the world. As a video artist I produce realtime visuals in sync with audio with video mapping projection software, Resolume.",
+        },
+        "upstate-artist": {
+          title: "Promotional Visuals & EP Art",
+          meta: "04 - 2023 - Album Art",
+          image: "img/Spiketest1_1.gif",
+          gallery: [],
+          text: "An artist from Upstate New York needed visuals as promotional material for a concert in addition to art for an EP release. The former was created through RayTK in TouchDesigner in addition to image editing via GLSL TOPs. The latter was created in Blender, with a specific focus on creating insteresting materials for the album art.",
+        },
+        "overhead-bins": {
+          title: "The Overhead Bins",
+          meta: "05 - 2022 - Music Video",
+          image: "img/jimmyface.png",
+          gallery: ["img/soccerd.png"],
+          text: "The Overhead Bins, an indie rock group with over 50,000 listeners comissoned me for a music video for one of their unreleased songs. I used photogrammetry to capture the lead singer's face and create a model based on their photos. In addition to photogrammetry I used, I created Tornado effects and multiple renders of rigged characters playing soccer to fit the Playstation 1 aesthetic for my client. Once the render was finished, I used Magic Music Visualizer to composite 2D graphics and art into the project, and Adobe Aftereffects to animate an additional camera and layer all the different kinds of media together.",
+        },
+        mellophobiac: {
+          title: "Mellophobiac",
+          meta: "06 - 2022 - Spotify Album Art",
+          image: "img/seanproject.gif",
+          gallery: ["img/Seanfinal2.gif"],
+          text: "Mellophobiac, A tri-state band needed animated art for two tracks on Spotify. The first project was a procedural animation, with the materials and object modifiers all being animated to create different effects within the visuals. Then, I synced it to their music via another modular software called Magic Music Visualizer. This allowed me to edit the color, screenspace texture coordinates, and visuals based on the frequencies in the music as another layer to help fit the track. The second art involved me creating looping text that would scroll indefinitely. I quickly animated the the text in Aftereffects before using Resolume to create the background.",
+        },
+      };
+
+      const modal = document.getElementById("project-modal");
+      const modalImage = document.getElementById("modal-image");
+      const modalMeta = document.getElementById("modal-meta");
+      const modalTitle = document.getElementById("modal-title");
+      const modalText = document.getElementById("modal-text");
+      const modalGallery = document.getElementById("modal-gallery");
+
+      function openProject(projectKey) {
+        const project = projects[projectKey];
+        if (!project) return;
+
+        modalImage.style.setProperty("--bg", `url('${project.image}')`);
+        modalMeta.textContent = project.meta;
+        modalTitle.textContent = project.title;
+        modalText.textContent = project.text;
+        modalGallery.innerHTML = project.gallery
+          .map(
+            (src) => `
+              <div class="col-md-6">
+                <img src="${src}" alt="${project.title} additional project image" class="img-fluid rounded-4" />
+              </div>
+            `,
+          )
+          .join("");
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeProject() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-project]").forEach((card) => {
+        card.addEventListener("click", () => openProject(card.dataset.project));
+      });
+
+      document.querySelectorAll("[data-close-modal]").forEach((button) => {
+        button.addEventListener("click", closeProject);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeProject();
+      });
+    </script>
+  </body>
+</html>

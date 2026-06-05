@@ -1,528 +1,467 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWBNDJTVV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZJWBNDJTVV');
-</script>
-     <style>
-     body {
-  background-color: black; /* Make the whole page background black */
-}
-
-.black-frame {
-  background-color: black; /* Make the content inside white */
-  padding: 40px;
-  color:white;
-  border-radius: 12px;
-  max-width: 100%;
-  margin: 0 auto 60px auto;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* optional glow */
-} 
-    </style>
-    </style>
-       <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="Chudi's Design Portfolio" content="Portfolio - Chudi Onwuasoanya"/>
-    <meta  name="keywords" content="chudi, onwuasoanya, coding, visuals, computer science, touchdesigner"
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Dreamscle procedural design — commissioned music visuals, realtime video art, album art, and experimental digital production."
     />
+    <meta
+      name="keywords"
+      content="Dreamscle, Chudi Onwuasoanya, procedural design, music visuals, video artist, album art, TouchDesigner, Blender, Resolume"
+    />
+    <title>Procedural Design — Dreamscle</title>
     <link rel="shortcut icon" href="img/logo.png" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dreamscle-fixed-dark-design.css" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .client-work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
 
-    <title>Procedural Design</title>
+      .client-card {
+        min-height: 430px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.85)),
+          var(--bg) center / cover no-repeat;
+        color: #fff;
+        text-align: left;
+        padding: 1.5rem;
+        display: flex;
+        align-items: flex-end;
+        isolation: isolate;
+        cursor: pointer;
+      }
+
+      .client-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(255, 255, 255, 0.22),
+          transparent 38%
+        );
+        opacity: 0;
+        transition:
+          opacity 220ms ease,
+          transform 220ms ease;
+        z-index: -1;
+      }
+
+      .client-card:hover::before,
+      .client-card:focus-visible::before {
+        opacity: 1;
+      }
+
+      .client-card:hover,
+      .client-card:focus-visible {
+        transform: translateY(-4px);
+      }
+
+      .client-card-content {
+        width: 100%;
+      }
+
+      .client-card h3 {
+        font-size: clamp(2rem, 4vw, 4.25rem);
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        margin: 0.65rem 0 1rem;
+      }
+
+      .client-card .work-index,
+      .client-card .work-link {
+        display: block;
+      }
+
+      .client-card .work-link {
+        margin-top: 1rem;
+      }
+
+      .project-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        place-items: center;
+        padding: 1.25rem;
+      }
+
+      .project-modal.is-open {
+        display: grid;
+      }
+
+      .project-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.74);
+        backdrop-filter: blur(14px);
+      }
+
+      .project-modal-card {
+        position: relative;
+        width: min(980px, 100%);
+        max-height: min(84vh, 900px);
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 30px;
+        background: rgba(8, 8, 18, 0.92);
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+      }
+
+      .project-modal-image {
+        min-height: 330px;
+        background: var(--bg) center / cover no-repeat;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .project-modal-copy {
+        padding: clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .project-modal-copy h2 {
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        font-size: clamp(2.2rem, 5vw, 5rem);
+        margin-bottom: 1rem;
+      }
+
+      .project-modal-copy p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .project-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.56);
+        color: #fff;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      @media (max-width: 991px) {
+        .client-work-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .client-card {
+          min-height: 360px;
+        }
+      }
+    </style>
   </head>
 
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-          <span class="icofont-close js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
+  <body>
+    <div
+      id="site-loader"
+      class="site-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading Dreamscle website"
+    ></div>
 
-      <nav class="site-nav dark mb-5 site-navbar-target">
-      <div class="container">
-        <div class="site-navigation">
-          <ul
-            class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap"
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="noise-layer" aria-hidden="true"></div>
+
+    <header class="site-header fixed-top" id="site-header">
+      <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+        <div class="container-fluid px-3 px-lg-5">
+          <a
+            class="navbar-brand brand-mark"
+            href="index.html"
+            aria-label="Dreamscle home"
           >
-            <li><a href="index.html" class="nav-link active">Home</a></li>
-            
-            
-            <li><a href ="clientwork.html" class="nav-link"> Client Work</a> </li>
-           
-            <li>
-              <a href="proceduraldesign.html" class="nav-link">Procedural Design</a>
-            </li>
-            <li>
-              <a href="animation.html" class="nav-link">Animation</a>
-            </li>
-            <li>
-              <a href="computerscience.html" class="nav-link"
-                >Computer Science</a
-              >
-            </li>
-          </ul>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      
-      <li class="nav-item">
-        <a class="nav-link" href="clientwork.html">Client Work</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="computerscience.html">Computer Science</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="animation.html">Animation</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="proceduraldesign.html">Procedural Design</a>
-      </li>
-      
-    </ul>
-    
-  </div>
-</nav>
-        </div>
-      </div>
-    </nav>
-    
-  
-      <div class="container">
-        <div
-          class="portfolio-single-wrap unslate_co--section"
-          id="portfolio-single-section"
-        >
-          <div class="portfolio-single-inner">
-            <div class="black-frame">
-            <h2 class="heading-portfolio-single-h2 text-black">
-              Procedural Design 
-            </h2>
-            
-    
-             
-              <div class="col-12 my-5">
-              
-                <div class="col-12 my-5">
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                      <div class="detail-v1">
-                        <span class="detail-label">Project Date</span>
-                        <span class="detail-val">2023</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                      <div class="detail-v1">
-                        <span class="detail-label">Concept</span>
-                        <span class="detail-val">Pointcloud manipulation</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-             
-              <div class="row justify-content-between mb-5">
-                <div class="col-lg-12 mb-5 mb-lg-0">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <img
-                        src="img/draguta.png"
-                        alt="Image"
-                        class="img-fluid"
-                      />
-                    </div>
-                    <div class="col-lg-6">
-                      <img
-                        src="img/pointcloudtouch.gif"
-                        alt="Image"
-                        class="img-fluid"
-                        style="padding-bottom: 50px"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-            <div class="row justify-content-between mb-5">
-          
-                </div>
-                <p>
-                Further manipulating pointclouds, I utilized Agisoft Metashape software to create pointcloud data from nature videos. 
-                After processing the data in Blender, I created a manipulatable environment that I could control with audioreactive effects. <br>
-                <br>I recreated this process in Touchdesigner, utilizing the pointcloud data from the initial processing in Agisoft to control point information that I could manipulate and make audioreactive.
-              </div>
-
-              <div class="col-12 my-5">
-                <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-3">
-                    <div class="detail-v1">
-                      <span class="detail-label">Project Date</span>
-                      <span class="detail-val">2023</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-6 col-lg-3">
-                    <div class="detail-v1">
-                      <span class="detail-label">Concept</span>
-                      <span class="detail-val">TouchDesigner</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-between mb-5">
-              <div class="col-lg-12 mb-5 mb-lg-0">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <img
-                      src="img/Posijdobebumpin_2.gif"
-                      alt="Image"
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="col-lg-6">
-                    <img
-                      src="img/subtlestrain_1_2.gif"
-                      alt="Image"
-                      class="img-fluid"
-                      style="padding-bottom: 50px"
-                    />
-                  </div>
-                </div>
-              </div>
-              <p>
-                TouchDesigner also has the ability to write different kinds of
-                GLSL shaders, allowing me to write vertex and fragment shaders in
-                 Python. I manipulate texture based operators (TOPs), real-time
-                 GPU-based compositing and image manipulation nodes to render
-                 3d visuals, data visualizations, or mathematical equations. Touchdesigner includes a host of libraries that I use in addition to the scripts I create.<br><br>
-                 
-                <strong> RayTK</strong> is a Raymarching library of Touchdesigner components that
-                allow me to create GLSL shaders in realtime and work with them
-                in larger nodebased networks rather than scripting it all
-                directly. RayTK functions similarly to Pyspace, another
-                Raymarching library that allows me to create objects, scenes and
-                patterns. These patterns can then be animated based on data
-                input to Touchdesigner like music.
-              </p>
-          
-          
-  
-    
-    <div class="container">
-      
-        <div class="portfolio-single-inner">
-          
-          
-            <div class="col-12 my-5">
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="detail-v1">
-                    <span class="detail-label">Project Date</span>
-                    <span class="detail-val">2023</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="detail-v1">
-                    <span class="detail-label">Concept</span>
-                    <span class="detail-val"
-                      >Point data and Particle simulations</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-between mb-5">
-            <div class="col-lg-12 mb-5 mb-lg-0">
-              <div class="row">
-                <div class="col-lg-6">
-                  <img
-                    src="img/cursedunearth.png"
-                    alt="Image"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="col-lg-6">
-                  <img
-                    src="img/thenexusresolved.gif"
-                    alt="Image"
-                    class="img-fluid"
-                    style="padding-bottom: 50px"
-                  />
-                </div>
-              </div>
-            </div>
-            <p>
-              I wanted to create a particle simulation with a procedurally
-              modeled asset so I utilized Houdini to create a particle
-              simulation. I then took that particle simulation's data- the
-              Euler angles for orientation, particle size, color and using
-              that information was able to recreate the same simulation inside
-              of Blender by copying the point data over through Geometry
-              Nodes. This process could be done with other Houdini simulation
-              projects I work on, allowing for simulations to be edited and
-              tweaked inside of Blender from Houdini.
-            </p>
+            <span class="brand-orb" aria-hidden="true"></span>
+            <span>Dreamscle</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#work">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#services">Commissions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="resume.pdf">Resume</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-primary nav-cta" href="index.html#contact"
+                  >Start a project</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-   
-    <div class="container">
-      <div
-        class="portfolio-single-wrap unslate_co--section"
-        id="portfolio-single-section"
+      </nav>
+    </header>
+
+    <main id="main">
+      <section
+        class="hero min-vh-100 d-flex align-items-center"
+        id="top"
+        aria-labelledby="hero-title"
       >
-        <div class="portfolio-single-inner">
-          <div class="row justify-content-between mb-5">
-         
-            
-            <div class="col-12 my-5">
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="detail-v1">
-                    <span class="detail-label">Project Date</span>
-                    <span class="detail-val">2022</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <div class="detail-v1">
-                    <span class="detail-label">Concept</span>
-                    <span class="detail-val"> Photogrammetry</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="row justify-content-between mb-5">
-            <div class="col-lg-12 mb-5 mb-lg-0">
-              <div class="row">
-                <div class="col-lg-6">
-                  <img
-                    src="img/soccerd.png"
-                    alt="Image"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="col-lg-6">
-                  <img
-                    src="img/jimmyface.png"
-                    alt="Image"
-                    class="img-fluid"
-                    style="padding-bottom: 50px"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <p><br>         The Overhead Bins, an indie rock group with over 50,000
-                listeners comissoned me for a music video for one of their
-                unreleased songs. I used photogrammetry to capture the lead
-                singer's face and create a model based on their photos. In
-                addition to photogrammetry I used, I created Tornado effects
-                and multiple renders of rigged characters playing soccer to
-                fit the Playstation 1 aesthetic for my client.
+        <div class="container position-relative">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-8 hero-copy">
+              <p class="eyebrow reveal">
+                Selected projects · Ongoing study · Technical Demonstrations
               </p>
-            </div>
-            <div class="col-md-6">
-              <p>
-                Once the render was finished, I used Magic Music Visualizer to
-                composite 2D graphics and art into the project, and Adobe
-                Aftereffects to animate an additional camera and layer all the
-                different kinds of media together.
+              <h1 class="display-1 fw-black reveal" id="hero-title">
+                Procedural Design
+              </h1>
+              <p class="lead reveal">
+                Music visuals, animated album art, realtime projection systems,
+                and dreamlike digital assets created for artists, events, and
+                performers.
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-     
-        <div
-          class="portfolio-single-wrap unslate_co--section"
-          id="portfolio-single-section"
+      <section class="section-padding" id="work" aria-labelledby="work-title">
+        <div class="container">
+          <div class="section-kicker reveal">Design Projects</div>
+          <div class="row align-items-end mb-4 g-3"></div>
+
+          <div class="client-work-grid">
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/draguta.png&quot;)"
+              data-project="pointcloudmanipulation"
+            >
+              <span class="client-card-content">
+                <span class="work-index">01 - 2024 - Point Data</span>
+                <h3>Pointcloud Manipulation</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/subtlestrain_1_2.gif&quot;)"
+              data-project="touchdesigner"
+            >
+              <span class="client-card-content">
+                <span class="work-index">02 - 2023 - Visual Development</span>
+                <h3>Touchdesigner</h3>
+                <span class="work-link">Ongoing Study</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/thenexusresolved.gif&quot;)"
+              data-project="Houdini"
+            >
+              <span class="client-card-content">
+                <span class="work-index">03 - 2023 - Particle Simulation</span>
+                <h3>Houdini</h3>
+                <span class="work-link">Ongoing Study</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/jimmyface.png&quot;)"
+              data-project="photogrammetry"
+            >
+              <span class="client-card-content">
+                <span class="work-index">04 - 2023 - Photogrammetry</span>
+                <h3>The Overhead Bins</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+
+            <button
+              class="client-card reveal"
+              type="button"
+              style="--bg: url(&quot;img/pyspaceresumeexampe.gif&quot;)"
+              data-project="raymarching"
+            >
+              <span class="client-card-content">
+                <span class="work-index">05 - 2022 - Raymarching</span>
+                <h3>Pyspace</h3>
+                <span class="work-link">Open project</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal></div>
+      <article
+        class="project-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button
+          class="project-modal-close"
+          type="button"
+          aria-label="Close project"
+          data-close-modal
         >
-          <div class="portfolio-single-inner">
-            <div class="row justify-content-between mb-5">
-           
-              
-              <div class="col-12 my-5">
-                <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-3">
-                    <div class="detail-v1">
-                      <span class="detail-label">Project Date</span>
-                      <span class="detail-val">2022</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-6 col-lg-3">
-                    <div class="detail-v1">
-                      <span class="detail-label">Concept</span>
-                      <span class="detail-val"> Pyspace</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-             </div>
-            <div class="row justify-content-between mb-5">
-              <div class="col-lg-12 mb-5 mb-lg-0">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <img
-                      src="img/FullMetalPalgrave_1_1.gif"
-                      alt="Image"
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="col-lg-6">
-                    <img
-                      src="img/pyspaceresumeexampe.gif"
-                      alt="Image"
-                      class="img-fluid"
-                      style="padding-bottom: 50px"
-                    />
-                  </div>
-                </div>
-              </div>
-              <p>
-                Pyspace was the first raymarching library I utiltized, due to it
-                being written in Python and having basic recording features. I
-                was able to learn the basics of manipulating signed distance
-                fields (SDFs) and create animations with objects I had scripted.
-              </p>
-            </div>
-          </div>
-       
-      </div>
-    </div>
-     </div>
-    </div>
-  </div>
-</body>
-
-    <div class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="widget">
-              <a href="index.html" class="h3">Home</a>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-3 -->
-
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Projects</h3>
-              <ul class="list-unstyled float-left links">
-               
-               
-                <li><a href="computerscience.html">Computer Science</a></li>
-              </ul>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-3 -->
-
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Portfolio</h3>
-              <ul class="list-unstyled float-left links">
-              
-                <li>
-                  <a href="proceduraldesign.html">Procedural Design</a>
-                </li>
-                <li><a href="clientwork.html">Client Work</a></li>
-              </ul>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-3 -->
-
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Connect</h3>
-              <ul class="list-unstyled social">
-                <li>
-                  <a href="https://www.instagram.com/dreamscle/"
-                    > 
-                    <img
-                    src="img/instagram.png"
-                    class="img-fluid rounded-circle mb-3"
-                  />
-                </a>
-                </li>
-            
-                <li>
-                  <a href = https://www.patreon.com/c/Dreamsicle122>
-                    <img
-                      src="img/patreon.png"
-                      alt="patreon"
-                      class="img-fluid rounded-circle mb-3"
-                    />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-3 -->
+          ×
+        </button>
+        <div class="project-modal-image" id="modal-image"></div>
+        <div class="project-modal-copy">
+          <p class="eyebrow" id="modal-meta"></p>
+          <h2 id="modal-title"></h2>
+          <p id="modal-text"></p>
+          <div class="row g-3 mt-4" id="modal-gallery"></div>
         </div>
-        <!-- /.row -->
-
-       
- 
-        </div>
-      </div>
-      <!-- /.container -->
+      </article>
     </div>
-    <!-- /.site-footer -->
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/wave-animate.js"></script>
-    <script src="js/circle-progress.js"></script>
-    <script src="js/imagesloaded.pkgd.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/TweenMax.min.js"></script>
-    <script src="js/ScrollMagic.min.js"></script>
-    <script src="js/scrollmagic.animation.gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/custom.js"></script>
+    <footer class="site-footer py-4">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between gap-2"
+      >
+        <p class="mb-0">
+          © <span id="year"></span> Dreamscle / Chudi Onwuasoanya
+        </p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="dreamscle-fixed-dark-design.js"></script>
+
+    <script>
+      const projects = {
+        pointcloudmanipulation: {
+          title: "Point Cloud Manipulation",
+          meta: "01 - 2023 - Concept",
+          image: "img/draguta.png",
+          gallery: [],
+          text: "Further manipulating pointclouds, I utilized Agisoft Metashape software to create pointcloud data from nature videos. After processing the data in Blender, I created a manipulatable environment that I could control with audioreactive effects. I recreated this process in Touchdesigner, utilizing the pointcloud data from the initial processing in Agisoft to control point information that I could manipulate and make audioreactive.",
+        },
+        touchdesigner: {
+          title: "Touchdesigner",
+          meta: "02 - 2023 - Video Artist",
+          image: "img/subtlestrain_1_2.gif",
+          gallery: ["img/subtlestrain_1_2.gif"],
+          text: " TouchDesigner also has the ability to write different kinds of GLSL shaders, allowing me to write vertex and fragment shaders in  Python. I manipulate texture based operators (TOPs), real-time GPU-based compositing and image manipulation nodes to render 3d visuals, data visualizations, or mathematical equations. Touchdesigner includes a host of libraries that I use in addition to the scripts I create. I performed a 6hr set of visuals, mixing realtime visuals with ones I had created in other programs like Blender and Touchdesigner. <br><br> RayTK is a Raymarching library of Touchdesigner components that allow me to create GLSL shaders in realtime and work with them in larger nodebased networks rather than scripting it all directly. RayTK functions similarly to Pyspace, another Raymarching library that allows me to create objects, scenes and patterns. These patterns can then be animated based on data input to Touchdesigner like music.",
+        },
+        Houdini: {
+          title: "Houdini",
+          meta: "03 - 2023 - Houdini",
+          image: "img/thenexusresolved.gif",
+          gallery: ["img/thenexusresolved.gif"],
+          text: "I wanted to create a particle simulation with a procedurally modeled asset so I utilized Houdini to create a particle simulation. I then took that particle simulation's data- the Euler angles for orientation, particle size, color and using that information was able to recreate the same simulation inside of Blender by copying the point data over through Geometry Nodes. This process could be done with other Houdini simulation projects I work on, allowing for simulations to be edited and tweaked inside of Blender from Houdini..",
+        },
+        photogrammetry: {
+          title: "The Overhead Bins",
+          meta: "04 - 2023 - Music Video",
+          image: "img/soccerd.png",
+          gallery: [],
+          text: "The Overhead Bins, an indie rock group with over 50,000 listeners comissoned me for a music video for one of their unreleased songs. I used photogrammetry to capture the lead singer's face and create a model based on their photos. In addition to photogrammetry I used, I created Tornado effects and multiple renders of rigged characters playing soccer to fit the Playstation 1 aesthetic for my client. Once the render was finished, I used Magic Music Visualizer to composite 2D graphics and art into the project, and Adobe Aftereffects to animate an additional camera and layer all the different kinds of media together.",
+        },
+        raymarching: {
+          title: "Pyspace",
+          meta: "05 - 2022 - Study",
+          image: "img/FullMetalPalgrave_1_1.gif",
+          gallery: ["img/pyspaceresumeexampe.gif"],
+          text: " Pyspace was the first raymarching library I utiltized, due to it being written in Python and having basic recording features. I was able to learn the basics of manipulating signed distance fields (SDFs) and create animations with objects I had scripted.",
+        },
+      };
+
+      const modal = document.getElementById("project-modal");
+      const modalImage = document.getElementById("modal-image");
+      const modalMeta = document.getElementById("modal-meta");
+      const modalTitle = document.getElementById("modal-title");
+      const modalText = document.getElementById("modal-text");
+      const modalGallery = document.getElementById("modal-gallery");
+
+      function openProject(projectKey) {
+        const project = projects[projectKey];
+        if (!project) return;
+
+        modalImage.style.setProperty("--bg", `url('${project.image}')`);
+        modalMeta.textContent = project.meta;
+        modalTitle.textContent = project.title;
+        modalText.innerHTML = project.text;
+        modalGallery.innerHTML = project.gallery
+          .map(
+            (src) => `
+              <div class="col-md-6">
+                <img src="${src}" alt="${project.title} additional project image" class="img-fluid rounded-4" />
+              </div>
+            `,
+          )
+          .join("");
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeProject() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-project]").forEach((card) => {
+        card.addEventListener("click", () => openProject(card.dataset.project));
+      });
+
+      document.querySelectorAll("[data-close-modal]").forEach((button) => {
+        button.addEventListener("click", closeProject);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeProject();
+      });
+    </script>
   </body>
 </html>
