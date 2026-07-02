@@ -229,33 +229,56 @@
 
     <main id="main">
       <section
-        class="hero min-vh-100 d-flex align-items-center"
+        class="hero client-hero min-vh-100"
         id="top"
         aria-labelledby="hero-title"
       >
-        <div class="container position-relative">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-8 hero-copy">
-              <p class="eyebrow reveal">
-                Selected projects · Commissioned production · Realtime visuals
+        <!-- Background collage -->
+        <div class="client-collage" aria-hidden="true">
+          <img src="img/hemmiverse.png" alt="" />
+          <img src="img/wondervillenight_1.gif" alt="" />
+          <img src="img/wondervillenight.JPG" alt="" />
+          <img src="img/blackrockmovin.gif" alt="" />
+          <img src="img/concertvis.gif" alt="" />
+          <img src="img/seanproject.gif" alt="" />
+        </div>
+
+        <!-- Foreground content -->
+        <div class="container-fluid px-4 px-lg-5 h-100">
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="min-height: 100vh"
+          >
+            <div class="contact-card reveal client-hero-panel">
+              <p class="eyebrow reveal client-tags">
+                <span>Selected projects</span>
+                <span>&bull;</span>
+                <span>Commissioned production</span>
+                <span>&bull;</span>
+                <span>Realtime visuals</span>
               </p>
-              <h1 class="display-1 fw-black reveal" id="hero-title">
-                Clients and Commissions
-              </h1>
+
+              <h1 class="display-1 fw-black reveal" id="hero-title">Clients</h1>
+
               <p class="lead reveal">
                 Music visuals, animated album art, realtime projection systems,
                 and dreamlike digital assets created for artists, events, and
-                performers.
+                performers. I handle event promotion and production, creative
+                design, as well as performance during the live events
+                themselves.
               </p>
+
               <div class="d-flex flex-wrap gap-3 reveal">
-                <a class="btn btn-primary btn-lg magnetic" href="#work"
-                  >View projects</a
-                >
+                <a class="btn btn-primary btn-lg magnetic" href="#work">
+                  View projects
+                </a>
+
                 <a
                   class="btn btn-outline-light btn-lg magnetic"
                   href="index.html#contact"
-                  >Commission inquiry</a
                 >
+                  Commission inquiry
+                </a>
               </div>
             </div>
           </div>
@@ -312,7 +335,7 @@
             >
               <span class="client-card-content">
                 <span class="work-index">04 - 2023 - Album Art</span>
-                <h3>Promotional Visuals</h3>
+                <h3>Album Art</h3>
                 <span class="work-link">Open project</span>
               </span>
             </button>
@@ -372,7 +395,11 @@
         </div>
       </article>
     </div>
-
+    <div class="marquee-track">
+      <span>TouchDesigner</span><span>Blender</span><span>Houdini</span
+      ><span>WebGL</span><span>Shaders</span><span>Procedural Modeling</span
+      ><span>Realtime Graphics</span><span>Interactive Installation</span>
+    </div>
     <footer class="site-footer py-4">
       <div
         class="container d-flex flex-column flex-md-row justify-content-between gap-2"
