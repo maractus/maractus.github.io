@@ -206,17 +206,22 @@
           <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
               <li class="nav-item">
-                <a class="nav-link" href="index.html#work">Work</a>
+                <a class="nav-link" href="#work">Work</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html#services">Commissions</a>
+                <a class="nav-link" href="https://www.instagram.com/dreamscle/"
+                  >Instagram</a
+                >
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="resume.pdf">Resume</a>
               </li>
               <li class="nav-item">
-                <a class="btn btn-primary nav-cta" href="index.html#contact"
-                  >Start a project</a
+                <a
+                  class="btn btn-primary nav-cta"
+                  href="https://www.patreon.com/c/Dreamsicle122"
+                  >Patreon</a
                 >
               </li>
             </ul>
@@ -227,33 +232,58 @@
 
     <main id="main">
       <section
-        class="hero min-vh-100 d-flex align-items-center"
+        class="hero client-hero min-vh-100"
         id="top"
         aria-labelledby="hero-title"
       >
-        <div class="container position-relative">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-8 hero-copy">
-              <p class="eyebrow reveal">
-                STEAM Education · Commissioned production · Fundraising
+        <!-- Background collage -->
+        <div class="client-collage" aria-hidden="true">
+          <img src="img/siggraph.png" alt="" />
+          <img src="img/techhouset.png" alt="" />
+          <img src="img/aeops.png" alt="" />
+          <img src="img/libertysciencecenter.jpg" alt="" />
+          <img src="img/resistorr.jpg" alt="" />
+          <img src="img/hillsideinnovationacademy.jpeg" alt="" />
+        </div>
+
+        <!-- Foreground content -->
+        <div class="container-fluid px-4 px-lg-5 h-100">
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="min-height: 100vh"
+          >
+            <div class="contact-card reveal client-hero-panel">
+              <p class="eyebrow reveal client-tags">
+                <span>Ongoing Studies</span>
+                <span>&bull;</span>
+                <span>Technical Art</span>
+                <span>&bull;</span>
+                <span>Simulations</span>
               </p>
+
               <h1 class="display-1 fw-black reveal" id="hero-title">
                 Community Building
               </h1>
+
               <p class="lead reveal">
-                My work organizing community, art, and technology supports
-                underserved communities. I establish education programs and
-                speak at conferences to showcase my technical experience.
+                Music visuals, animated album art, realtime projection systems,
+                and dreamlike digital assets created for artists, events, and
+                performers. I handle event promotion and production, creative
+                design, as well as performance during the live events
+                themselves.
               </p>
+
               <div class="d-flex flex-wrap gap-3 reveal">
-                <a class="btn btn-primary btn-lg magnetic" href="#work"
-                  >View projects</a
-                >
+                <a class="btn btn-primary btn-lg magnetic" href="#work">
+                  View projects
+                </a>
+
                 <a
                   class="btn btn-outline-light btn-lg magnetic"
                   href="index.html#contact"
-                  >Commission inquiry</a
                 >
+                  Commission inquiry
+                </a>
               </div>
             </div>
           </div>
@@ -275,7 +305,7 @@
             <button
               class="client-card reveal"
               type="button"
-              style="--bg: url(&quot;img/dayplant2.png&quot;)"
+              style="--bg: url(&quot;img/techhous2e.jpg&quot;)"
               data-project="floating-shrine"
             >
               <span class="client-card-content">
@@ -400,7 +430,7 @@
         "floating-shrine": {
           title: "Urban League of Essex",
           meta: "01 - 2025 - Education Engagement",
-          image: "img/dayplant2.png",
+          image: "img/tech-house.png",
           gallery: [],
           text: "Helped establish Tech House for Urban League of Essex  with former Newark councilman Darrin Sharif to empower underserved communities in Essex County. Developed branding and advertisement material while promoting classes through professional outreach. Delivered curriculum on personal branding and promotional tools for independant business owners.",
         },
